@@ -22,20 +22,19 @@ bundle install
 rails generate rspec:install
 
 #### config stuff:
-- in `spec/spec_helper.rb`
+- In `spec/spec_helper.rb`
 add to top of file:
   ```
   require 'simplecov'
   SimpleCov.start 'rails'
 ```
-- in `spec/rails_helper.rb`
+- In `spec/rails_helper.rb`
 add to top of file:
 
   `DatabaseCleaner.strategy = :truncation`
 
-- add in RSpec.configure block:
-
-  ```
+- Add in RSpec.configure block:
+```
   config.include FactoryBot::Syntax::Methods
 
   config.include Capybara::DSL
@@ -53,4 +52,4 @@ add to top of file:
      with.test_framework :rspec
      with.library :rails
    end
-  ```
+```
