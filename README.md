@@ -1,4 +1,4 @@
-# how-to-build-a-rails-app
+# Rails Boilerplate
 
 simply clone this repo for a boilerplate rails app with testing tools included.
 
@@ -35,21 +35,21 @@ add to top of file:
 
 - Add in RSpec.configure block:
 ```
-  config.include FactoryBot::Syntax::Methods
+    config.include FactoryBot::Syntax::Methods
 
-  config.include Capybara::DSL
+    config.include Capybara::DSL
 
-  config.before :each do
-      DatabaseCleaner.clean
+    config.before :each do
+        DatabaseCleaner.clean
+      end
+
+    config.after :each do
+        DatabaseCleaner.clean
     end
 
-  config.after :each do
-      DatabaseCleaner.clean
-  end
-
-  Shoulda::Matchers.configure do |config|
-   config.integrate do |with|
-     with.test_framework :rspec
-     with.library :rails
-   end
+    Shoulda::Matchers.configure do |config|
+     config.integrate do |with|
+       with.test_framework :rspec
+       with.library :rails
+     end
 ```
